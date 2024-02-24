@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+    <title>Document</title>
+    <style>
+        body, html {
+            height: 100%;
+          }
+          
+          .bg {
+            /* Full height */
+            height: 97%;
+            width: 100%;
+          
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            cursor: pointer; /* Add cursor style to indicate it's clickable */
+          }
+    </style>
+</head>
+<body>
+  
+      <img src="{{ url_for('static', filename='frontpage.png') }}" alt="..." class="bg" onclick="redirectToNewPage()">
+
+
+    	<!-- JavaScript function to redirect to new page -->
+	<script>
+		function redirectToNewPage() {
+			window.location = "{{ url_for('index') }}"; // Use Flask's URL routing to redirect to 'index' endpoint
+		}
+	</script>
+    
+</body>
+</html>

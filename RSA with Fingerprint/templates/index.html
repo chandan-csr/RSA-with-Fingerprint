@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+    <title>Upload Image</title>
+  </head>
+  <body class="bg-image">
+    <div id="start" class="flex-container">
+      <video class="video" src="static/pexels-yauheni-vasilevich-7101913.mp4" muted loop autoplay></video>
+    <div class="container">
+      <h1 style="color: blue;">Upload Fingerprint Image</h1>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="file" style="font-weight:bold">Choose a file:</label>
+          <input type="file" id="file" name="file" accept="image/*">
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Upload" style="font-weight:bold">
+        </div>
+      </form>
+    </div>
+    {% if error %}
+    <div class="overlay">
+      <div class="dialog-box">
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+        <button onclick="dismissDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+    {% endif %}
+    <script>
+      function dismissDialog() {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "none";
+      }
+
+      var error = "{{ error }}";
+      if (error) {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "block";
+      }
+
+      function enter() {
+            window.open("./index.html", "_self");
+        }
+    </script>
+  </body>
+</html>

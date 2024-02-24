@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+    <title>Upload Image</title>
+  </head>
+  <body class="bg-image">
+    <div id="start" class="flex-container">
+      <video class="video" src="static/pexels-yauheni-vasilevich-7101913.mp4" muted loop autoplay></video>
+    <div class="container">
+      <h1 style="color: blue;">Image Encryption</h1>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      <form id="upload-form" action="/encryptimage" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="file" style="font-weight:bold">Choose a file:</label>
+          <input type="file" id="file" name="file" accept="image/*">
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Upload">
+        </div>
+      </form>
+      <div class="input-group">
+        <form action="/index" method="GET" enctype="multipart/form-data">
+          <input type="submit" value="Home">
+        </form>
+      </div>
+      
+      {% if input_image %}
+      <div class="img-container">
+        <div class="input-group">
+          <h2>Input Image:</h2>
+          <img src="{{ url_for('static', filename=input_image) }}">
+        </div>
+        <div class="input-group">
+          <h2>Encrypted Image:</h2>
+          <img src="{{ url_for('static', filename=output_image) }}">
+        </div>
+        <div class="input-group">
+          <h2>Decrypted Image:</h2>
+          <img src="{{ url_for('static', filename=decrypted_image) }}">
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% if error %}
+    <div class="overlay">
+      <div class="dialog-box">
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+        <button onclick="dismissDialog()">OK</button>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+    <script>
+      
+      function dismissDialog() {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "none";
+      }
+
+      var error = "{{ error }}";
+      if (error) {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "block";
+      }
+      
+    </script>
+  </body>
+</html>

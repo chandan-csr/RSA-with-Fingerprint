@@ -1,0 +1,351 @@
+body {
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('bgimage.png');
+    padding: 0%;
+    margin: 0%;
+    }
+
+    .bg-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+    .container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    }
+
+    .container1 {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 60vh;
+      font-family: Arial, sans-serif;
+      }
+
+    h1 {
+    font-size: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    }
+
+    .error {
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    }
+
+    form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      width: 1150px;
+      }
+
+    input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+    width: 25%;
+    }
+
+    input[type="submit"]:hover {
+    background-color: #0069d9;
+    margin-top: 10px;
+    }
+
+    /* Style for radio button inputs */
+    input[type="radio"] {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Style for the button */
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Style for the button on hover */
+    button:hover {
+      background-color: #0069d9;
+    }
+
+    /* Style for text area input */
+    textarea {
+      font-size: 1.2rem;
+      resize: none;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 500px;
+      min-height: 200px;
+    }
+
+    .bordered-image {
+      border: 2px solid black;
+    }
+    
+    /* Additional styles for the generate prime numbers section */
+
+    .generate-prime-numbers-section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .generate-prime-numbers-section h1 {
+    margin-bottom: 20px;
+    }
+
+    .generate-prime-numbers-section .error {
+    margin-top: 10px;
+    }
+
+    .generate-prime-numbers-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    }
+
+    .generate-prime-numbers-section label {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    }
+
+    .generate-prime-numbers-section input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1.2rem;
+    }
+
+    .generate-prime-numbers-section input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    }
+
+    .generate-prime-numbers-section input[type="submit"]:hover {
+    background-color: #222;
+    }
+
+    .generate-prime-numbers-section label {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    }
+
+    .generate-prime-numbers-section input[type="text"] {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    }
+
+    .generate-prime-numbers-section input[type="text"]:focus {
+    outline: none;
+    border-color: #333;
+    }
+
+    .generate-prime-numbers-section p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    }
+
+    .image-container {
+        flex: 1;
+        margin: 10px;
+        height: 48%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .image-wrapper {
+        width: 50%;
+        display: inline-block;
+      }
+      
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+      }  
+
+/* radio button css*/
+.radio-container {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.radio-container label {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.radio-container label span {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.radio-container label span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px none red;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.radio-container input[type="radio"]:checked + label span {
+  font-weight: bolder;
+  color: green;
+}
+
+/*video background*/
+.flex-container {
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+
+.flex-container video {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+}     

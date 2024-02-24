@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+    <title>Upload Text File</title>
+  </head>
+  <div id="start" class="flex-container">
+    <video class="video" src="static/pexels-yauheni-vasilevich-7101913.mp4" muted loop autoplay></video>
+  <body class="bg-image">
+    <div class="container">
+      <h1 style="color: blue;">Text File Encryption</h1>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      <form id="upload-form" action="/encrypttxtfile" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="file" style="font-weight:bold">Choose a file:</label>
+          <input type="file" id="file" name="file" accept=".txt">
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Upload">
+        </div>
+      </form>
+        <div class="input-group">
+          <form action="/index" method="GET" enctype="multipart/form-data">
+            <input type="submit" value="Home">
+          </form>
+        </div>
+ 
+      <div class="button-group">
+      {% if encrypted_file %}
+      <div class="input-group">
+        <form action="{{ url_for('static', filename='encrypted.txt') }}" method="GET">
+          <input type="hidden" name="filename" value="{{ encrypted_file }}">
+          <input class="btn" type="submit" value="View Encrypted File">
+        </form>
+      </div>
+      {% endif %}
+
+      {% if encrypted_file %}
+      <div class="input-group">
+        <form action="/download_encrypted_file" method="GET">
+          <input type="hidden" name="filename" value="{{ encrypted_file }}">
+          <input class="btn" id="download" type="submit" value="">
+        </form>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="button-group">
+      {% if decrypted_file %}
+      <div class="input-group">
+        <form action="{{ url_for('static', filename='decrypted.txt') }}" method="GET">
+          <input type="hidden" name="filename" value="{{ decrypted_file }}">
+          <input class="btn" type="submit" value="View Decrypted File">
+        </form>
+      </div>
+      {% endif %}
+
+      {% if decrypted_file %}
+      <div class="input-group">
+        <form action="/download_decrypted_file" method="GET">
+          <input type="hidden" name="filename" value="{{ decrypted_file }}">
+          <input class="btn" id="download" type="submit" value="">
+        </form>
+      </div>
+      {% endif %}
+    </div>
+    </div>
+
+    {% if error %}
+    <div class="overlay">
+      <div class="dialog-box">
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+        <button onclick="dismissDialog()">OK</button>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+    <script>
+      function dismissDialog() {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "none";
+      }
+
+      var error = "{{ error }}";
+      if (error) {
+        var overlay = document.querySelector(".overlay");
+        overlay.style.display = "block";
+      }
+
+      //loading bar
+
+      // Select the form element and add a submit event listener
+      const form = document.getElementById('upload-form');
+      form.addEventListener('submit', function(event) {
+        // Select the input element
+        const input = document.getElementById('file');
+        
+        // Select the button elements
+        const uploadButton = document.querySelector('input[type="submit"][value="Upload"]');
+        const loadingButton = document.createElement('button');
+        loadingButton.setAttribute('disabled', 'true');
+        loadingButton.classList.add('btn', 'loading');
+        loadingButton.innerHTML = 'Encrypting/Decrypting...';
+        
+        // Replace the upload button with the loading button
+        uploadButton.parentNode.replaceChild(loadingButton, uploadButton);
+      });
+
+    </script>
+  </body>
+</html>

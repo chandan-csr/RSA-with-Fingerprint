@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='text.css')}}">
+    <title>Text Encryption/Decryption</title>
+  </head>
+  <body class="bg-image">
+    <div id="start" class="flex-container">
+      <video class="video" src="static/pexels-yauheni-vasilevich-7101913.mp4" muted loop autoplay></video>
+    <h1>Text Encryption/Decryption</h1>
+
+    <form method="post" action="/encrypt">
+      <h3>Enter Text:</h3>
+      <textarea name="plaintext" cols="50" rows="10">{{plaintext}}</textarea>
+      <br><br>
+      <input type="submit" value="Encrypt">
+    </form>
+
+    <hr>
+
+    {% if ciphertext %}
+      <h3>Encrypted Text:</h3>
+      <textarea name="ciphertext" cols="50" rows="10">{{ ciphertext }}</textarea>
+      <br><br>
+      <form method="post" action="/decrypt">
+        <input type="hidden" name="ciphertext" value="{{ ciphertext }}">
+        <input type="submit" value="Decrypt">
+      </form>
+    {% endif %}
+
+    <hr>
+
+    {% if decryptedtext %}
+      <h3>Decrypted Text:</h3>
+      <textarea name="decryptedtext" cols="50" rows="10">{{ decryptedtext }}</textarea>
+    {% endif %}
+
+    <form action="/index" method="GET" enctype="multipart/form-data">
+      <input type="submit" value="Upload new image">
+    </form>
+
+<!--    <form  method="GET" enctype="multipart/form-data">
+      <input type="button" value="Go back" onclick="history.go(-2)">
+    </form>-->
+  </div>
+
+  </body>
+</html>

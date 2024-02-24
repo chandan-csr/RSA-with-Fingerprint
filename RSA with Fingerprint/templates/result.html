@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='fingericon.png') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='result.css')}}">
+	<title>Result</title>
+	<style>
+		.containe {
+			max-width: 1100px;
+			margin: 50px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100vw;
+			height: 15vh;
+			/*min-height: 100vh;*/
+			font-family: Arial, sans-serif;
+			}
+	</style>
+</head>
+<body class="bg-image">
+	<div id="start" class="flex-container">
+		<video class="video" src="static/pexels-yauheni-vasilevich-7101913.mp4" muted loop autoplay></video>
+	<div class="container">
+		<h1>Minutiae Detection Result</h1>
+		<div class="image-container">
+		{% if error %}
+			<p class="error">{{ error }}</p>
+		{% elif result1 %}
+			<div class="image-wrapper">
+				<img class="bordered-image" src="{{ url_for('static', filename='input_image.png') }}" alt="Input Image">
+			</div>	
+		{% endif %}
+		
+		{% if error %}
+			<p class="error">{{ error }}</p>
+		{% elif result2 %}
+			<div class="image-wrapper">
+				<!--<h1>Result Image</h1>-->
+				<img class="bordered-image" src="{{ url_for('static', filename='output_image.png') }}" alt="Result Image">
+			</div>
+		{% endif %}
+		</div>
+	</div>
+	
+	<div class="container1">
+	<p>Minutiae count: {{ minutiae_count }}</p>
+	
+	<h1>Prime numbers</h1>
+
+	{% if error%}
+		<p class="error">{{ error }}</p>
+	{% else %}
+		<p>prime_before: {{ prime_before }}</p>
+		<p>prime_after: {{ prime_after }}</p>
+	{% endif %}
+
+	<form action="/index" method="GET" enctype="multipart/form-data" class="form">
+		<input type="submit" value="Upload new image" style="font-weight:bold">
+	</form>
+    </div>
+
+	<div class="containe">
+	<h1>Select an option:</h1>
+	<form method="POST" action="/process_option">
+		<div class="radio-container">
+		<input type="radio" id="option1" name="option" value="1">
+		<label for="option1"><span>Encrypt Text</span></label><br>
+		</div>
+
+		<div class="radio-container">
+		<input type="radio" id="option2" name="option" value="2">
+		<label for="option2"><span>Encrypt Textfile</span></label><br>
+		</div>
+
+		<div class="radio-container">
+		<input type="radio" id="option3" name="option" value="3">
+		<label for="option3"><span>Encrypt Image</span></label><br>
+		</div>
+		<div class="radio-container">
+		<form>
+			<button type="submit" style="font-weight:bold">Go to Page</button>
+		</form>
+	</div>
+</div>
+</div>
+	</form>
+
+</body>
+</html>
+</body>
+</html>
